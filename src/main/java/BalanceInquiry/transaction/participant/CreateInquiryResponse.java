@@ -31,13 +31,15 @@ public class CreateInquiryResponse implements TransactionParticipant, Configurab
 		try {
 
 			Object balance = ((Context) context).get(Constant.BALANCE);
+			String status = ((Context)context).get(Constant.STATUS).toString();
 
-			if (balance != null) {
+			if (status.equals(Constant.APPROVED)) {
 
 				responseMsg.set(39, Constant.RESPONSE_OK);
-				responseMsg.set(4, balance.toString());
+				if(balance != null)
+					responseMsg.set(4, balance.toString());
 
-				if (cfg.getBoolean("debug", true))
+				if (cfg.getBoolean("debug", true) && balance!=null)
 					System.out.println("\n*****\nCreateInquiryResponse Commit: Balance is "+balance.toString()+"\n*****\n");
 
 			} else{
