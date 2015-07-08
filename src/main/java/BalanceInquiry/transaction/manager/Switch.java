@@ -38,7 +38,7 @@ public class Switch implements GroupSelector, Configurable {
 		try {
 			ISOMsg reqMsg = (ISOMsg) ((Context) context).get(Constant.REQUEST);
 
-			if(cfg.getBoolean("debug"))
+			if(cfg.getBoolean("debug", true))
 				System.out.println("\n*****\nIn Switch: Request with MTI "+reqMsg.getMTI()+" is "+cfg.get(reqMsg.getMTI())+"!\n*****\n");
 
 			return cfg.get(reqMsg.getMTI(), null);
