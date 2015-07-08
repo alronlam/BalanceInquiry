@@ -49,7 +49,7 @@ public class SendInquiryResponse implements TransactionParticipant, Configurable
 	}
 
 	@Override
-	public void setConfiguration(Configuration arg0) throws ConfigurationException {
+	public void setConfiguration(Configuration cfg) throws ConfigurationException {
 		this.cfg = cfg;
 	}
 
