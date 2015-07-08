@@ -9,7 +9,7 @@
     </participant>
 
     <group name="NetworkManagement">
-    	<participant class="transaction.participant.network.NetworkManagementResponse" logger="Q2" />
+    	<!--<participant class="transaction.participant.network.NetworkManagementResponse" logger="Q2" />-->
     </group>
 
     <group name="FinancialTransaction">
