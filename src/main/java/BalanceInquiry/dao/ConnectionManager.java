@@ -14,7 +14,7 @@ public class ConnectionManager {
 
 	public static void initializeConnection(){
 		try{
-			if(conn != null)
+			if(conn == null)
 				conn = DriverManager.getConnection(url, username, password);
 		    System.out.println("Database connected!");
 		} catch (SQLException e) {

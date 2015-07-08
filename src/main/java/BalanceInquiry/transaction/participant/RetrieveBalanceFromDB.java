@@ -41,7 +41,6 @@ public class RetrieveBalanceFromDB implements TransactionParticipant {
 		
 		try {
 			String accountNumber = (String) msg.getValue(2);
-			//replace 1000 with account number
 			balance = balanceDao.getBalance(accountNumber);
 			
 		} catch (SQLException | ISOException e) {
