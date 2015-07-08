@@ -27,6 +27,9 @@ dependencies {
         exclude(module: 'junit')
         exclude(module: 'hamcrest-core')
     }
+
+    compile files ('libs/mysql-connector-java-5.1.36-bin.jar')
+    
     testCompile 'junit:junit:4.8.2'
 }
 
