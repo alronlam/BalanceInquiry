@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 
 public class ConnectionManager {
-	private static String url = "jdbc:mysql://localhost:3306/balance_inquiry";
+	private static String url = "jdbc:mysql://localhost:3306/test_server";
 	private static String username = "root";
 	private static String password = "1234";
 	
@@ -27,7 +27,10 @@ public class ConnectionManager {
 	}
 
 	public static void closeConnection() throws SQLException{
-		if(conn != null)
+		if(conn != null){
 			conn.close();
+			conn = null;
+		}
+					
 	}
 }
