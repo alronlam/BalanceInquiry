@@ -14,17 +14,17 @@ public class ValidateAccount implements TransactionParticipant {
 
 	@Override
 	public void abort(long id, Serializable context) {
-		System.out.println("\n*****\n Abort\n*****\n");
+		System.out.println("\n*****\nValidateAccount Abort\n*****\n");
 	}
 
 	@Override
 	public void commit(long id, Serializable context) {
-		System.out.println("\n*****\n Commit\n*****\n");
+		System.out.println("\n*****\nValidateAccount Commit\n*****\n");
 	}
 
 	@Override
 	public int prepare(long id, Serializable context) {
-		System.out.println("\n*****\n Prepare\n*****\n");
+		System.out.println("\n*****\nValidateAccount Prepare\n*****\n");
 
 		ISOMsg senderMsg = (ISOMsg) ((Context) context).get(Constant.REQUEST);
 		String accountNumber = senderMsg.getString(2);
@@ -35,13 +35,16 @@ public class ValidateAccount implements TransactionParticipant {
 
 			boolean isAccountValid = balanceDao.isValidAccount(accountNumber);
 			if (isAccountValid)
-				return PREPARED;
+				((Context)context).put(Constant.STATUS, Constant.APPROVED);
+			else
+				((Context)context).put(Constant.STATUS, Constant.DENIED);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
+			((Context)context).put(Constant.STATUS, Constant.DENIED);
 		}
 
-		return ABORTED;
+		return PREPARED;
 	}
 
 }

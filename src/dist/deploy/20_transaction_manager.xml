@@ -25,6 +25,7 @@
             <property name="required" value="49" />
         </participant>
         <participant class="transaction.participant.CreateTransactionLog" logger="Q2" />
+        <participant class="transaction.participant.ValidateAccount" logger="Q2"/>
         <participant class="transaction.participant.RetrieveBalanceFromDB" logger="Q2" />
         <participant class="transaction.participant.CreateInquiryResponse" logger="Q2" />
         <participant class="transaction.participant.SaveTransactionLogToDB" logger="Q2" />

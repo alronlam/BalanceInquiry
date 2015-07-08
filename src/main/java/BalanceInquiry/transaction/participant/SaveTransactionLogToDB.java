@@ -28,6 +28,7 @@ public class SaveTransactionLogToDB implements TransactionParticipant {
 		System.out.println("\n*****\n Commit Save Transaction Log\n*****\n");
 
 		BalanceLog balanceLog = (BalanceLog) ((Context)context).get(Constant.LOG);
+		balanceLog.setResponse(((Context)context).get(Constant.STATUS).toString());
 		try {
 			balanceLogDao.writeBalanceLog(balanceLog);
 		} catch (SQLException e) {
@@ -40,7 +41,7 @@ public class SaveTransactionLogToDB implements TransactionParticipant {
 		System.out.println("\n*****\n Prepare Save Transaction Log\n*****\n");
 
 		balanceLogDao = new BalanceLogDao();
-		
+
 		return PREPARED;
 	}
 
