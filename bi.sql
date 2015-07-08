@@ -1,0 +1,12 @@
+CREATE DATABASE balance_inquiry;
+
+USE balance_inquiry;
+
+CREATE TABLE accounts (id INT(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+		       account_number VARCHAR(20) NOT NULL,
+		       balance DECIMAL(19,4) NOT NULL);
+
+CREATE TABLE logs (id INT(5) NOT NULL PRIMARY KEY AUTO_INCREMENT,
+		   account_number VARCHAR(20) NOT NULL,
+		   transaction_time TIMESTAMP DEFAULT NOW(),
+		   response VARCHAR(20) NOT NULL);
