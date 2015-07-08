@@ -14,7 +14,6 @@
 
     <group name="FinancialTransaction">
         <participant class="transaction.participant.OpenDBConnection" logger="Q2" />
-        <participant class="transaction.manager.Switch" logger="Q2" />
         <participant class="transaction.participant.ValidateFields" logger="Q2">
             <property name="required" value="0" />
             <property name="required" value="2" />
