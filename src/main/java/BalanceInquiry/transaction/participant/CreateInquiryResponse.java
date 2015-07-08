@@ -27,7 +27,7 @@ public class CreateInquiryResponse implements TransactionParticipant, Configurab
 		if (cfg.getBoolean("debug", true))
 			System.out.println("\n*****\nCreateInquiryResponse Commit\n*****\n");
 
-		ISOMsg responseMsg = (ISOMsg) ((Context) context).get(Constant.REQUEST);
+		ISOMsg responseMsg = (ISOMsg)((ISOMsg) ((Context) context).get(Constant.REQUEST)).clone();
 		try {
 
 			Object balance = ((Context) context).get(Constant.BALANCE);
