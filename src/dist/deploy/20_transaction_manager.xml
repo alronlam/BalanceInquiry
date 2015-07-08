@@ -13,7 +13,15 @@
     </group>
 
     <group name="FinancialTransaction">
-        <!-- Fill this part up with the actual participants -->
+        <participant class="transaction.participant.OpenDBConnection" logger="Q2" />
+        <participant class="transaction.manager.Switch" logger="Q2" />
+        <participant class="transaction.participant.ValidateFields" logger="Q2" />
+        <participant class="transaction.participant.CreateTransactionLog" logger="Q2" />
+        <participant class="transaction.participant.RetrieveBalanceFromDB" logger="Q2" />
+        <participant class="transaction.participant.CreateInquiryResponse" logger="Q2" />
+        <participant class="transaction.participant.SaveTransactionLogToDB" logger="Q2" />
+        <participant class="transaction.participant.CloseDBConnection" logger="Q2" />
+        <participant class="transaction.participant.SendInquiryResponse" logger="Q2" />
     </group>
 
 </txnmgr>
