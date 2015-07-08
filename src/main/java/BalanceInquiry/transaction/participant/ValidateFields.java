@@ -38,11 +38,17 @@ public class ValidateFields implements TransactionParticipant, Configurable {
 		int[] requiredFields = this.retrieveAllRequiredFields();
 		for (int i : requiredFields) {
 			if (!isFieldPresent(i, requestMsg)){
+
+				((Context)context).put(Constant.STATUS, Constant.DENIED);
+
 				if(cfg.getBoolean("debug", true))
 					System.out.println("\n*****\nValidateFields Aborted due to missing field "+i+"\n*****\n");
 				return ABORTED;
 			}
 		}
+
+		((Context)context).put(Constant.STATUS, Constant.APPROVED);
+
 		if(cfg.getBoolean("debug", true))
 			System.out.println("\n*****\nValidateFields Prepared: All required fields present\n*****\n");
 		return PREPARED | NO_JOIN;
