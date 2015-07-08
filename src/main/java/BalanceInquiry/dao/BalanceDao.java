@@ -25,4 +25,17 @@ public class BalanceDao{
 		}
 		return null;
 	}
+
+	public boolean isValidAccount(String accountNumber) throws SQLException{
+		Connection conn = ConnectionManager.getConnection();
+
+		PreparedStatement pstmt = conn.prepareStatement("SELECT * accounts WHERE account_number = ?");
+		pstmt.setString(1, accountNumber);
+		ResultSet result = pstmt.executeQuery();
+
+		while(result.next()){
+			return true;
+		}
+		return false;
+	}
 }
