@@ -23,6 +23,7 @@ public class Client {
 		ISOMsg m = new ISOMsg();
 		m.setMTI("0200");
 		m.set(2, "4001");
+		m.set(3, "300000");
 		m.set(4, "00000001");
 		m.set(7, "301");
 		m.set(14, "1");
