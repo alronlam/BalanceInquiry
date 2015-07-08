@@ -13,8 +13,8 @@
     </group>
 
     <group name="FinancialTransaction">
-        <!--<participant class="transaction.participant.OpenDBConnection" logger="Q2" />
-        <participant class="transaction.manager.Switch" logger="Q2" />-->
+        <participant class="transaction.participant.OpenDBConnection" logger="Q2" />
+        <participant class="transaction.manager.Switch" logger="Q2" />
         <participant class="transaction.participant.ValidateFields" logger="Q2">
             <property name="required" value="0" />
             <property name="required" value="2" />
@@ -25,12 +25,12 @@
             <property name="required" value="41" />
             <property name="required" value="49" />
         </participant>
-        <!--<participant class="transaction.participant.CreateTransactionLog" logger="Q2" />
+        <participant class="transaction.participant.CreateTransactionLog" logger="Q2" />
         <participant class="transaction.participant.RetrieveBalanceFromDB" logger="Q2" />
         <participant class="transaction.participant.CreateInquiryResponse" logger="Q2" />
         <participant class="transaction.participant.SaveTransactionLogToDB" logger="Q2" />
         <participant class="transaction.participant.CloseDBConnection" logger="Q2" />
-        <participant class="transaction.participant.SendInquiryResponse" logger="Q2" />-->
+        <participant class="transaction.participant.SendInquiryResponse" logger="Q2" />
     </group>
 
 </txnmgr>
